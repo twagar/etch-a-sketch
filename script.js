@@ -1,6 +1,11 @@
+// More options to be added at a later date, for a more robust experience.
+// The application is currently in a barebones state, and needs to be featured.
+//let newG = document.getElementById("newGrid")
+//newG.addEventListener('click', () => { startGrid()}) /* OLD CODE */
+
+
 const container = document.querySelector("#container");
-let newG = document.getElementById("newGrid")
-newG.addEventListener('click', () => { startGrid()})
+
 let cell;
 
 function createCell (nCell) {
@@ -11,6 +16,9 @@ function createCell (nCell) {
         cell.addEventListener('mouseover', e => e.target.classList.add('colour-class'));
     }
 }
+    const resetGrid = document.getElementById("resetGrid").addEventListener('click', function () {
+    window.location.reload();
+    });
 
 function createGrid (nRow, nCol) {
     container.style.setProperty('--nRows', nRow);
@@ -21,7 +29,7 @@ function createGrid (nRow, nCol) {
 }
 
 function startGrid() {
-    let sizeG = prompt("Enter the amount of rows/columns. 1 - 100.", 16);
+    let sizeG = prompt("Enter the amount of rows/columns. 1 - 100.");
     if (sizeG >= 1 && sizeG <= 100) {
         createGrid (sizeG, sizeG);
     } else {
@@ -39,9 +47,9 @@ function startGrid() {
 //if (!Number.isInteger(gInput)) return "ERROR";  
 //if (gInput >= 100 || gInput <= 0) return "ERROR! Stay in range 0 - 100."
 //});
-
-let curColour = 'black';
-const colours = { black: 'black'};
-e => e.target.classList.add(colours[curColour]);
+//Colour swashes to be addded:
+//let curColour = 'black';
+//const colours = { black: 'black'};
+//e => e.target.classList.add(colours[curColour]);
 
 startGrid();
